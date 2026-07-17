@@ -14,10 +14,12 @@ def login():
 @app.route("/handle-login", methods=["GET","POST"])
 def handle_login():
     if request.method == "POST":
-        print(request.form)
-    return "This page is for handling login form submission"
-
-
+        name = request.form.get("username")
+        password = request.form.get("password")
+        return f"Welcome {name}!"
+    else:
+        return render_template("login.html")  
+    
 
 
 
