@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
@@ -28,7 +28,14 @@ def handle_login():
 
 
 
-
+@app.route("/jsonroute")
+def jsondata():
+    data = {
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York"
+    }
+    return jsonify(data)
 
 
 
