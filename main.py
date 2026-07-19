@@ -4,7 +4,11 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def hello_world():
-    return render_template("index.html")
+    query = request.args.get('q')
+    print(f"Query parameter: {query}")
+    
+    return render_template("index.html", query = query)
+
 
 @app.route("/login")
 def login():
