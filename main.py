@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, url_for,redirect
 
 app = Flask(__name__)
 
@@ -35,7 +35,7 @@ def jsondata():
         "age": 30,
         "city": "New York"
     }
-    return jsonify(data)
+    return redirect(url_for('login'))
 
 
 
